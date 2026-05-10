@@ -157,7 +157,7 @@ const Navbar = () => {
     <nav className="fixed top-4 left-4 right-4 z-50 bg-white rounded-full px-6 md:px-10 py-3 flex items-center justify-between shadow-lg">
       {
         <img
-          src="/src/assets/landing%20page%20(home)/logo%20nextup%20hijau.png"
+          src="/src/assets/landing-page-(home)/logo-nextup-hijau.png"
           alt="Nt Up"
           className="h-8"
         /> 
@@ -245,7 +245,7 @@ const Hero = () => (
       className="absolute pointer-events-none"
       style={{ top: 90, left: 130, transform: "rotate(-12deg)" }}
     >
-      <img src="/src/assets/landing page (home)/business case.png" alt="bisnis" width={130} height={130} />
+      <img src="/src/assets/landing-page-(home)/business-case.png" alt="bisnis" width={130} height={130} />
     </div>
 
     {/* Kiri bawah — Tas / Koper */}
@@ -254,7 +254,7 @@ const Hero = () => (
       className="absolute pointer-events-none"
       style={{ bottom: 120, left: 80, transform: "rotate(-6deg)" }}
     >
-      <img src="/src/assets/landing page (home)/paper.png" alt="" width={110} height={100} />
+      <img src="/src/assets/landing-page-(home)/paper.png" alt="" width={110} height={100} />
     </div>
 
     {/* Kanan atas — Palet warna (bulat) */}
@@ -263,7 +263,7 @@ const Hero = () => (
       className="absolute pointer-events-none"
       style={{ top: 80, right: 110, transform: "rotate(8deg)" }}
     >
-      <img src="/src/assets/landing page (home)/paint icon.png" alt="Palette Illustration" width={110} height={110}
+      <img src="/src/assets/landing-page-(home)/paint-icon.png" alt="Palette Illustration" width={110} height={110}
       />
     </div>
 
@@ -273,7 +273,7 @@ const Hero = () => (
       className="absolute pointer-events-none"
       style={{ bottom: 130, right: 120, transform: "rotate(15deg)" }}
     >
-      <img src="/src/assets/landing page (home)/pencil.png" alt="Pencil Illustration" width={80} height={80} />
+      <img src="/src/assets/landing-page-(home)/pencil.png" alt="Pencil Illustration" width={80} height={80} />
     </div>
 
     {/* ── Konten tengah ── */}
@@ -295,7 +295,7 @@ const Hero = () => (
           ─ Jika punya file PNG judul: ganti <h1> ini dengan:
             <img src="/assets/title-nextup.png" alt="NEXT UP" style={{ width: "min(600px, 80vw)", marginBottom: 16 }} />
       */}
-      <img src="/src/assets/logo nextup main.png" alt="NEXT UP" style={{ width: "min(600px, 80vw)", marginBottom: 16 }} />
+      <img src="/src/assets/logo-nextup-main.png" alt="NEXT UP" style={{ width: "min(600px, 80vw)", marginBottom: 16 }} />
 
       {/* Subtitle */}
       <p
@@ -383,7 +383,7 @@ const About = () => (
             eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim.
           </p>
           <div className="flex gap-4 items-start mb-6">
-            <img src="/src/assets/about/mascot%20sora.png" alt="Mascot Sora" className="w-30 h-50 flex-shrink-0" />
+            <img src="/src/assets/about/mascot-sora.png" alt="Mascot Sora" className="w-30 h-50 flex-shrink-0" />
             <div className="bg-teal-50 border-l-4 border-teal-500 p-4 rounded-r-xl flex-1">
               <p className="text-sm font-bold text-teal-800 mb-1">Tema:</p>
               <p className="text-teal-700 italic font-semibold">
@@ -393,7 +393,7 @@ const About = () => (
             </div>
           </div>
           {/* Ganti kotak abu ini dengan: <img src="/assets/logo-sponsor-1.png" className="h-8" /> */}
-          <img src="/src/assets/about/MARANUU MARANUUUU.png" alt="Maranuu Maranu" className="h-20" /> 
+          <img src="/src/assets/about/MARANUU-MARANUUUU.png" alt="Maranuu Maranu" className="h-20" /> 
         </div>
         <div>
           <p className="text-sm font-bold text-gray-700 mb-4">
@@ -513,10 +513,10 @@ const Categories = () => {
     <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
       {categories.map((cat, i) => {
         const categoryImages = [
-          "/src/assets/Daftar/business%20suit%20case%20ijo.png",
-          "/src/assets/Daftar/paper%20ijo.png",
-          "/src/assets/Daftar/paint%20ijo.png",
-          "/src/assets/Daftar/pencil%20ijo.png",
+          "/src/assets/Daftar/business-suit-case-ijo.png",
+          "/src/assets/Daftar/paper-ijo.png",
+          "/src/assets/Daftar/paint-ijo.png",
+          "/src/assets/Daftar/pencil-ijo.png",
         ];
         return (
         <div
