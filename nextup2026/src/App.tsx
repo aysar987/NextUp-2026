@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // ─── Assets ───────────────────────────────────────────────────────────────────
 // Navbar & Hero
@@ -146,7 +146,17 @@ const faqItems: FAQItem[] = [
 // ─── Navbar ───────────────────────────────────────────────────────────────────
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const links = ["Home", "About", "Timeline", "FAQ", "Contact"];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const smoothScrollTo = (element: HTMLElement, duration: number = 1000) => {
     const targetPosition = element.offsetTop;
@@ -181,7 +191,9 @@ const Navbar = () => {
 
   return (
     // Pill navbar mengambang di atas hero — persis seperti mockup
-    <nav className="fixed top-4 left-4 right-4 z-50 bg-white rounded-full px-6 md:px-10 py-3 flex items-center justify-between shadow-lg">
+    <nav
+      className={`fixed top-4 z-50 bg-white/95 backdrop-blur-xl rounded-full px-6 md:px-10 flex items-center justify-between shadow-lg transition-all duration-300 ${isScrolled ? "left-8 right-8 md:left-16 md:right-16 py-2" : "left-4 right-4 py-3"} max-w-[calc(100vw-1rem)] mx-auto`}
+    >
       {
         <img
           src={logoHijau}
@@ -196,7 +208,8 @@ const Navbar = () => {
           <li key={l}>
             <a
               onClick={(e) => { e.preventDefault(); scrollToSection(l.toLowerCase()); }}
-              className="hover:text-teal-600 transition-colors cursor-pointer">
+              className="hover:text-teal-600 transition-colors duration-200 active:scale-95 cursor-pointer"
+            >
               {l}
             </a>
           </li>
@@ -206,7 +219,7 @@ const Navbar = () => {
       {/* Tombol Daftar */}
       <a
         href="#pendaftaran"
-        className="hidden md:inline-block text-white text-sm font-bold px-7 py-2.5 rounded-full transition-colors"
+        className="hidden md:inline-flex items-center justify-center text-white text-sm font-bold px-7 py-2.5 rounded-full transition-all duration-200 active:scale-95"
         style={{ background: "#2b4a3c" }}
       >
         Daftar
@@ -270,27 +283,27 @@ const Hero = () => (
     {/* <img src="/assets/illus-book.png" alt="" className="absolute pointer-events-none" style={{ top: 90, left: 130, width: 96, transform: "rotate(-12deg)" }} /> */}
     <div
       className="absolute pointer-events-none"
-      style={{ top: 90, left: 130, transform: "rotate(-12deg)" }}
+      style={{ top: 140, left: 130, transform: "rotate(-12deg)" }}
     >
-      <img src={businessCase} alt="bisnis" width={130} height={130} />
+      <img src={businessCase} alt="bisnis" width={160} height={160} />
     </div>
 
     {/* Kiri bawah — Tas / Koper */}
     {/* <img src="/assets/illus-bag.png" alt="" className="absolute pointer-events-none" style={{ bottom: 120, left: 80, width: 110, transform: "rotate(-6deg)" }} /> */}
     <div
       className="absolute pointer-events-none"
-      style={{ bottom: 120, left: 80, transform: "rotate(-6deg)" }}
+      style={{ bottom: 120, left: 120, transform: "rotate(-6deg)" }}
     >
-      <img src={paper} alt="" width={110} height={100} />
+      <img src={paper} alt="" width={130} height={130} />
     </div>
 
     {/* Kanan atas — Palet warna (bulat) */}
     {/* <img src="/assets/illus-palette.png" alt="" className="absolute pointer-events-none" style={{ top: 80, right: 110, width: 110, transform: "rotate(8deg)" }} /> */}
     <div
       className="absolute pointer-events-none"
-      style={{ top: 80, right: 110, transform: "rotate(8deg)" }}
+      style={{ top: 170, right: 200, transform: "rotate(8deg)" }}
     >
-      <img src={paintIcon} alt="Palette Illustration" width={110} height={110}
+      <img src={paintIcon} alt="Palette Illustration" width={160} height={160}
       />
     </div>
 
@@ -298,9 +311,9 @@ const Hero = () => (
     {/* <img src="/assets/illus-pen.png" alt="" className="absolute pointer-events-none" style={{ bottom: 130, right: 120, width: 80, transform: "rotate(15deg)" }} /> */}
     <div
       className="absolute pointer-events-none"
-      style={{ bottom: 130, right: 120, transform: "rotate(15deg)" }}
+      style={{ bottom: 140, right: 120, transform: "rotate(0deg)" }}
     >
-      <img src={pencil} alt="Pencil Illustration" width={80} height={80} />
+      <img src={pencil} alt="Pencil Illustration" width={110} height={110} />
     </div>
 
     {/* ── Konten tengah ── */}
@@ -341,50 +354,25 @@ const Hero = () => (
         style={{
           fontSize: 14,
           color: "#2d6b52",
-          maxWidth: 500,
+          maxWidth: 800,
           lineHeight: 1.7,
           marginBottom: 28,
         }}
       >
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua labore et dolore
+        Next Up! 2026 dirancang sebagai wadah bagi mahasiswa dan inovator muda untuk mengembangkan ide serta kemampuan melalui kegiatan yang kompetitif dan bermakna, dengan mendorong peserta untuk berpikir kritis, bertindak kreatif, serta berkontribusi dalam menyelesaikan permasalahan nyata di dunia.
       </p>
 
       {/* CTA Buttons */}
-      <div
-        style={{
-          display: "flex",
-          gap: 12,
-          flexWrap: "wrap",
-          justifyContent: "center",
-        }}
-      >
+      <div className="flex flex-wrap gap-3 justify-center">
         <a
           href="#pendaftaran"
-          style={{
-            background: "#2b4a3c",
-            color: "white",
-            padding: "14px 32px",
-            borderRadius: 999,
-            fontSize: 14,
-            fontWeight: 700,
-            textDecoration: "none",
-          }}
+          className="inline-flex items-center justify-center rounded-full bg-[#2b4a3c] px-8 py-3 text-sm font-bold text-white transition-all duration-300 active:scale-95 hover:scale-110 hover:shadow-2xl"
         >
           Daftar Sekarang
         </a>
         <a
           href="#timeline"
-          style={{
-            background: "white",
-            color: "#2b4a3c",
-            border: "2px solid #2b4a3c",
-            padding: "14px 32px",
-            borderRadius: 999,
-            fontSize: 14,
-            fontWeight: 700,
-            textDecoration: "none",
-          }}
+          className="inline-flex items-center justify-center rounded-full border-2 border-[#2b4a3c] bg-white px-8 py-3 text-sm font-bold text-[#2b4a3c] transition-all duration-300 active:scale-95 hover:scale-110 hover:shadow-2xl"
         >
           Lihat Timeline
         </a>
@@ -523,6 +511,12 @@ const Categories = () => {
     "https://s.unhas.ac.id/RegistrasiInfografisCompetitionNEXTUP2026",
     "https://s.unhas.ac.id/RegistrasiEssayCompetitionNEXTUP2026",
   ];
+  const guidebookLinks = [
+    "https://drive.google.com/drive/folders/1K0MrBQyY2YUuCHsWa7pAtlQ4B6xeLBA9?usp=sharing",
+    "https://drive.google.com/drive/folders/1kipR-hg9ViFg2L7p3UevzTUptHMTKooq?usp=sharing",
+    "https://drive.google.com/drive/folders/162CgHCF1TnRGxnwfHz5P4qRAKQt3bVU6?usp=sharing",
+    "https://drive.google.com/drive/folders/16DD6sHxTYyJFAdDlrm-bdNTSN4178-Yt?usp=sharing",
+  ];
   return (
     <section id="pendaftaran" className="py-20 bg-white px-6">
     <div className="max-w-6xl mx-auto text-center mb-12">
@@ -554,16 +548,18 @@ const Categories = () => {
           <div>
             <h3 className="font-bold text-gray-800 mb-1">{cat.title}</h3>
             <p className="text-gray-500 text-sm mb-4">{cat.desc}</p>
-            <div className="flex gap-2">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3">
               <a
                 href={registrationLinks[i]}
-                className="bg-teal-600 text-white text-xs px-4 py-2 rounded-full font-semibold hover:bg-teal-700 transition-colors"
+                className="inline-flex w-full sm:w-auto items-center justify-center rounded-full bg-teal-600 px-4 py-2 text-xs font-semibold text-white transition-all duration-300 active:scale-95 hover:scale-110 hover:shadow-lg hover:bg-teal-700"
               >
                 Daftar Sekarang
               </a>
               <a
-                href="#"
-                className="border border-teal-600 text-teal-700 text-xs px-4 py-2 rounded-full font-semibold hover:bg-teal-50 transition-colors"
+                href={guidebookLinks[i]}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex w-full sm:w-auto items-center justify-center rounded-full border border-teal-600 px-4 py-2 text-xs font-semibold text-teal-700 transition-all duration-300 active:scale-95 hover:scale-110 hover:shadow-lg hover:bg-teal-50"
               >
                 Lihat Guidebook
               </a>
@@ -605,7 +601,7 @@ const FAQ = () => {
               className="bg-white rounded-2xl border border-teal-100 overflow-hidden"
             >
               <button
-                className="w-full flex items-center justify-between px-6 py-4 text-left font-semibold text-gray-800 text-sm hover:bg-teal-50 transition-colors"
+                className="w-full flex items-center justify-between px-6 py-4 text-left font-semibold text-gray-800 text-sm transition-all duration-300 hover:bg-teal-50 hover:shadow-md"
                 onClick={() => setOpen(open === i ? null : i)}
               >
                 {item.q}
