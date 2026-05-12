@@ -354,12 +354,12 @@ const Hero = () => (
         style={{
           fontSize: 14,
           color: "#2d6b52",
-          maxWidth: 800,
+          maxWidth: 900,
           lineHeight: 1.7,
           marginBottom: 28,
         }}
       >
-        Next Up! 2026 dirancang sebagai wadah bagi mahasiswa dan inovator muda untuk mengembangkan ide serta kemampuan melalui kegiatan yang kompetitif dan bermakna, dengan mendorong peserta untuk berpikir kritis, bertindak kreatif, serta berkontribusi dalam menyelesaikan permasalahan nyata di dunia.
+        NEXT UP! 2026 merupakan ajang kompetisi dan inovasi tingkat nasional yang menjadi wadah bagi mahasiswa untuk mengembangkan ide kreatif dan solusi berkelanjutan terhadap berbagai tantangan dunia nyata. Melalui berbagai cabang lomba, peserta diharapkan mampu berpikir kritis, inovatif, dan berkontribusi bagi masa depan yang lebih tangguh.
       </p>
 
       {/* CTA Buttons */}
@@ -418,18 +418,18 @@ const About = () => (
             {[
               {
                 icon: "🏆",
-                title: "Lorem ipsum",
-                desc: "Lorem ipsum dolor sit amet consectetur adipiscing elit.",
+                title: "Expand Your Innovation",
+                desc: "Kembangkan ide dan solusi kreatif melalui kompetisi yang inspiratif dan kompetitif.",
               },
               {
                 icon: "🤝",
-                title: "Lorem ipsum",
-                desc: "Lorem ipsum dolor sit amet consectetur adipiscing elit.",
+                title: "Build Connections",
+                desc: "Bertemu dengan mahasiswa, mentor, dan inovator dari berbagai daerah di Indonesia.",
               },
               {
                 icon: "🎖️",
-                title: "Lorem ipsum",
-                desc: "Lorem ipsum dolor sit amet consectetur adipiscing elit.",
+                title: "Achieve & Grow",
+                desc: "Dapatkan pengalaman, prestasi, serta peluang pengembangan diri melalui NEXT UP! 2026.",
               },
             ].map((item, i) => {
               const iconImages = [
@@ -634,9 +634,9 @@ const Contact = () => (
       </p>
       <div className="grid md:grid-cols-3 gap-6">
         {[
-          { label: "Email", value: "info@nextup.com" },
-          { label: "Whatsapp", value: "+62 812-3456-7890" },
-          { label: "Lokasi", value: "Fakultas Teknik, Universitas..." },
+          { label: "Email", value: "nextupftuh@gmail.com" },
+          { label: "Whatsapp", value: "(Rena) +62 852-1326-3606" },
+          { label: "Lokasi", value: "Fakultas Teknik, Universitas Hasanuddin" },
         ].map((c, i) => {
           const contactImages = [
             letter,
