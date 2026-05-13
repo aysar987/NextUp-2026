@@ -145,7 +145,7 @@ const faqItems: FAQItem[] = [
 ];
 
 // ─── Komponen Animasi Scroll ──────────────────────────────────────────────────
-const FadeInScroll = ({ children }) => {
+const FadeInScroll = ({ children }: { children: React.ReactNode }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }} // Mulai dari transparan dan agak ke bawah (50px)
